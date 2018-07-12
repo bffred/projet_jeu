@@ -1,0 +1,3 @@
+Django
+django-debug-toolbar 
+sqlite3
