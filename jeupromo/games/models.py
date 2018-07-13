@@ -34,7 +34,7 @@ class Games(models.Model):
 class Session(models.Model):
     game = models.ForeignKey(Games, on_delete=models.CASCADE)
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
-    datetime = models.DateTimeField(default=datetime.now())
+    datetime = models.DateTimeField(default=timezone.now())
     reward = models.ForeignKey(Reward, on_delete=models.CASCADE)
     result = models.CharField(max_length=150)
 
