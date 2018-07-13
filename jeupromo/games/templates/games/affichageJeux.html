@@ -1,0 +1,11 @@
+{% if games|length_is:"0" %}
+
+<div>Aucun jeu n'a été ajouté :/</div>
+
+{% else %}
+
+{% for game in games %}
+<div>({games.label})</div>
+
+{% endfor %}
+{% endif %}
