@@ -7,12 +7,11 @@ from django.http import HttpResponse, Http404
 
 # Create your views here.
 
-def view_jeux(request, id_jeux):
-    return HttpResponse(
-        "Le nom du jeu est : #{0} ".format(id_jeux)
-    )
-
 def home(request):
     return HttpResponse("""
     <h1> Bienvenue sur le projet Jeux Promotionnel ! <h1>
     """)
+
+def gamelist(request):
+    games = Games.objects.all()
+    return render(request, 'games/affichageJeux.html', {'games':games})
