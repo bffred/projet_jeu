@@ -6,3 +6,9 @@ class playerForm(ModelForm):
         model = Player
         fields = ['pseudo']
         
+
+
+class RewardForm(ModelForm):
+    class Meta:
+        model = Reward
+        fields = "__all__"
