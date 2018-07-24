@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Games , Player , Session , Reward
 from django.views.generic import TemplateView , ListView, DetailView
-from django.http import HttpResponse, Http404
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponse
+from django.urls import reverse_lazy
 
 
 
@@ -11,14 +13,6 @@ def home(request):
     return HttpResponse("""
     <h1> Bienvenue sur le projet Jeux Promotionnel ! <h1>
     """)
-
-def gamelist(request):
-    games = Games.objects.all()
-    return render(request, 'games/affichageJeux.html', {'games':games})
-
-def playerlist(request):
-    players = Player.objects.all()
-    return render(request, 'games/playerlist.html', {'players':players})
 
 
 class gamelist2(ListView):
@@ -37,3 +31,23 @@ class playerDetail(DetailView):
         context['players'] = Player.objects.all()
         return context
 
+
+class playerCreate (CreateView):
+    model = Player
+    fields = ['pseudo']
+    success_url = reverse_lazy('games:playerList')
+
+class playerUpdate (UpdateView):
+    model = Player
+    fields = ['pseudo']
+    success_url = reverse_lazy('games:playerList')
+
+class playerDelete (DeleteView):
+    model = Player
+    fields = ['pseudo']
+    success_url = reverse_lazy('games:playerList')
+    template_name = 'games/playerDelete.html'
+
+class playerList(ListView):
+    model = Player
+    template_name = 'games/playerlist.html'
