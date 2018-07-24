@@ -9,10 +9,10 @@ app_name = 'games'
 
 urlpatterns = [
     path('home', views.home, name = 'home'),
-    path('playerlist', PlayerList.as_view(), name='playerList'),
-    path('gamelist', GameList2.as_view(), name='gamelist'),
-    path('playerdetail/<int:pk>/', PlayerDetail.as_view(), name='playerDetail'),
-    path('playerupdate/<int:pk>/', PlayerUpdate.as_view(), name='playerUpdate'),
-    path('playerdelete/<int:pk>/', PlayerDelete.as_view(), name='playerDelete'),
-    path('playercreate/', PlayerCreate.as_view(), name='playerCreate')
+    path('player-list', PlayerList.as_view(), name='playerList'),
+    path('game-list', GameList2.as_view(), name='gamelist'),
+    path('player-detail/<int:pk>/', PlayerDetail.as_view(), name='playerDetail'),
+    path('player-update/<int:pk>/', PlayerUpdate.as_view(), name='playerUpdate'),
+    path('player-delete/<int:pk>/', PlayerDelete.as_view(), name='playerDelete'),
+    path('player-create/', PlayerCreate.as_view(), name='playerCreate')
 ]
