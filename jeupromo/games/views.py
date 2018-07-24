@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from .models import Games , Player , Session , Reward
-from django.views.generic import TemplateView , ListView, DetailView
+from .models import Games , Player , Session , Reward, Administrator
+from django.views.generic import TemplateView , ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse, Http404
+from .forms import RewardForm
+from django.urls import reverse_lazy
+
 
 
 
@@ -37,3 +40,32 @@ class playerDetail(DetailView):
         context['players'] = Player.objects.all()
         return context
 
+class RewardCreate(CreateView):
+    model = Reward
+    fields = ['label', 'value']
+    #form_class = RewardForm
+    success_url = reverse_lazy('games:reward-list')
+    template_name = 'games/reward-create.html'
+
+class RewardDetail(DetailView):
+    model = Reward
+    template_name = 'games/reward-detail.html'
+
+class RewardList(ListView):
+    model = Reward
+    template_name = 'games/reward-list.html'
+
+class RewardUpdate(UpdateView):
+    model = Reward
+    form_class = RewardForm
+    success_url = reverse_lazy('games:reward-list')
+    template_name = 'games/reward-update.html'
+
+class RewardDelete(DeleteView):
+    model = Reward
+    form_class = RewardForm
+    success_url = reverse_lazy('games:reward-list')
+    template_name = 'games/reward-delete.html'
+
+
+    
