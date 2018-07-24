@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Games , Player , Session , Reward
+from .models import Games , Player , Session , Reward, Administrator
 from django.views.generic import TemplateView , ListView, DetailView
 from django.http import HttpResponse, Http404
 
