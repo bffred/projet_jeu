@@ -15,39 +15,31 @@ def home(request):
     """)
 
 
-class gamelist2(ListView):
+class GameList2(ListView):
     model = Games
     template_name = 'games/gamelist2.html'
 
-class playerDetail(DetailView):
-    context_object_name = 'player'
-    queryset = Player.objects.all()
-    template_name = 'game/playerDetail.html'
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['players'] = Player.objects.all()
-        return context
-
-
-class playerCreate (CreateView):
+class PlayerCreate (CreateView):
     model = Player
     fields = ['pseudo']
     success_url = reverse_lazy('games:playerList')
 
-class playerUpdate (UpdateView):
+class PlayerUpdate (UpdateView):
     model = Player
-    fields = ['pseudo']
+    fields = ['pseudo'] 
     success_url = reverse_lazy('games:playerList')
 
-class playerDelete (DeleteView):
+class PlayerDelete (DeleteView):
     model = Player
     fields = ['pseudo']
     success_url = reverse_lazy('games:playerList')
     template_name = 'games/playerDelete.html'
 
-class playerList(ListView):
+class PlayerList(ListView):
     model = Player
     template_name = 'games/playerlist.html'
+
+class PlayerDetail(DetailView):
+    model = Player
+    fields = ['pseudo']
+    template_name = 'games/playerDetail.html'
