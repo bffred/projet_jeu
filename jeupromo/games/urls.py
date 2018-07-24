@@ -3,16 +3,16 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.views.generic import TemplateView
 from . import views
-from .views import GameList2, PlayerDetail, PlayerCreate, PlayerDelete, PlayerUpdate, PlayerList
+from .views import GameList, PlayerDetail, PlayerCreate, PlayerDelete, PlayerUpdate, PlayerList
 
 app_name = 'games'
 
 urlpatterns = [
     path('home', views.home, name = 'home'),
-    path('player-list', PlayerList.as_view(), name='playerList'),
-    path('game-list', GameList2.as_view(), name='gamelist'),
-    path('player-detail/<int:pk>/', PlayerDetail.as_view(), name='playerDetail'),
-    path('player-update/<int:pk>/', PlayerUpdate.as_view(), name='playerUpdate'),
-    path('player-delete/<int:pk>/', PlayerDelete.as_view(), name='playerDelete'),
-    path('player-create/', PlayerCreate.as_view(), name='playerCreate')
+    path('players', PlayerList.as_view(), name='players-list'),
+    path('', GameList.as_view(), name='games-list'),
+    path('players-detail/<int:pk>/', PlayerDetail.as_view(), name='player-detail'),
+    path('players-update/<int:pk>/', PlayerUpdate.as_view(), name='player-update'),
+    path('players-delete/<int:pk>/', PlayerDelete.as_view(), name='player-delete'),
+    path('players-create/', PlayerCreate.as_view(), name='player-create')
 ]

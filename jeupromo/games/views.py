@@ -15,31 +15,31 @@ def home(request):
     """)
 
 
-class GameList2(ListView):
+class GameList(ListView):
     model = Games
-    template_name = 'games/gamelist2.html'
+    template_name = 'games/games-list.html'
 
 class PlayerCreate (CreateView):
     model = Player
     fields = ['pseudo']
-    success_url = reverse_lazy('games:playerList')
+    success_url = reverse_lazy('games:players-list')
 
 class PlayerUpdate (UpdateView):
     model = Player
     fields = ['pseudo'] 
-    success_url = reverse_lazy('games:playerList')
+    success_url = reverse_lazy('games:players-list')
 
 class PlayerDelete (DeleteView):
     model = Player
     fields = ['pseudo']
-    success_url = reverse_lazy('games:playerList')
-    template_name = 'games/playerDelete.html'
+    success_url = reverse_lazy('games:players-list')
+    template_name = 'games/player-delete.html'
 
 class PlayerList(ListView):
     model = Player
-    template_name = 'games/playerlist.html'
+    template_name = 'games/players-list.html'
 
 class PlayerDetail(DetailView):
     model = Player
     fields = ['pseudo']
-    template_name = 'games/playerDetail.html'
+    template_name = 'games/player-detail.html'
