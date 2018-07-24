@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .models import Games , Player , Session , Reward, Administrator
+from .models import Games , Player , Session , Reward, Administrator, Promotion
 from django.views.generic import TemplateView , ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse, Http404
-from .forms import RewardForm
+from .forms import RewardForm, PromotionForm, PlayerForm
 from django.urls import reverse_lazy
 
 
@@ -22,7 +22,7 @@ class GameList(ListView):
 
 class PlayerCreate (CreateView):
     model = Player
-    fields = ['pseudo']
+    form_class = PlayerForm
     success_url = reverse_lazy('games:players')
 
 class PlayerUpdate (UpdateView):
@@ -48,8 +48,7 @@ class PlayerDetail(DetailView):
 
 class RewardCreate(CreateView):
     model = Reward
-    fields = ['label', 'value']
-    #form_class = RewardForm
+    form_class = RewardForm
     success_url = reverse_lazy('games:rewards')
     template_name = 'games/reward-create.html'
 
@@ -69,9 +68,30 @@ class RewardUpdate(UpdateView):
 
 class RewardDelete(DeleteView):
     model = Reward
-    form_class = RewardForm
     success_url = reverse_lazy('games:rewards')
     template_name = 'games/reward-delete.html'
 
+class PromotionCreate(CreateView):
+    model = Promotion
+    form_class = PromotionForm
+    success_url = reverse_lazy('games:promotions')
+    template_name = 'games/promotion-create.html'
 
-    
+class PromotionDetail(DetailView):
+    model = Promotion
+    template_name = 'games/promotion-detail.html'
+
+class PromotionList(ListView):
+    model = Promotion
+    template_name = 'games/promotions.html'
+
+class PromotionUpdate(UpdateView):
+    model = Promotion
+    form_class = PromotionForm
+    success_url = reverse_lazy('games:promotions')
+    template_name = 'games/promotion-update.html'
+
+class PromotionDelete(DeleteView):
+    model = Promotion
+    success_url = reverse_lazy('games:promotions')
+    template_name = 'games/promotion-delete.html'

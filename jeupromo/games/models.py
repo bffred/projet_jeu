@@ -56,3 +56,9 @@ class Administrator(models.Model):
     class Meta:
         verbose_name = "Gestionnaire"
 
+class Promotion(models.Model):
+    name = models.CharField(max_length=200)
+    date_start = models.DateTimeField(default=timezone.now())
+    date_end = models.DateTimeField(default=timezone.now())
+    administrator = models.ForeignKey(Administrator, on_delete=models.CASCADE)
+

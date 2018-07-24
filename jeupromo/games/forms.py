@@ -12,3 +12,8 @@ class RewardForm(ModelForm):
     class Meta:
         model = Reward
         fields = "__all__"
+
+class PromotionForm(ModelForm):
+    class Meta:
+        model = Promotion
+        fields = '__all__'
