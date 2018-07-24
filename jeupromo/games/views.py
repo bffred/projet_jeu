@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Games , Player , Session , Reward, Administrator
 from django.views.generic import TemplateView , ListView, DetailView
-from django.http import HttpResponse, Http404
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponse
+from django.urls import reverse_lazy
 
 
 
@@ -12,28 +14,32 @@ def home(request):
     <h1> Bienvenue sur le projet Jeux Promotionnel ! <h1>
     """)
 
-def gamelist(request):
-    games = Games.objects.all()
-    return render(request, 'games/affichageJeux.html', {'games':games})
 
-def playerlist(request):
-    players = Player.objects.all()
-    return render(request, 'games/playerlist.html', {'players':players})
-
-
-class gamelist2(ListView):
+class GameList(ListView):
     model = Games
-    template_name = 'games/gamelist2.html'
+    template_name = 'games/games-list.html'
 
-class playerDetail(DetailView):
-    context_object_name = 'player'
-    queryset = Player.objects.all()
-    template_name = 'game/playerDetail.html'
+class PlayerCreate (CreateView):
+    model = Player
+    fields = ['pseudo']
+    success_url = reverse_lazy('games:players-list')
 
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['players'] = Player.objects.all()
-        return context
+class PlayerUpdate (UpdateView):
+    model = Player
+    fields = ['pseudo'] 
+    success_url = reverse_lazy('games:players-list')
 
+class PlayerDelete (DeleteView):
+    model = Player
+    fields = ['pseudo']
+    success_url = reverse_lazy('games:players-list')
+    template_name = 'games/player-delete.html'
+
+class PlayerList(ListView):
+    model = Player
+    template_name = 'games/players-list.html'
+
+class PlayerDetail(DetailView):
+    model = Player
+    fields = ['pseudo']
+    template_name = 'games/player-detail.html'
