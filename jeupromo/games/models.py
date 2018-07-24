@@ -44,3 +44,15 @@ class Session(models.Model):
 
     class Meta:
         verbose_name = "Session"
+
+class Administrator(models.Model):
+    name = models.CharField(max_length=150)
+    login = models.CharField(max_length=15)
+    password = models.CharField(max_length=8)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Gestionnaire"
+
