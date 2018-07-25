@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from .models import *
 
-class playerForm(ModelForm):
+class PlayerForm(ModelForm):
     class Meta :
         model = Player
         fields = ['pseudo']
@@ -16,4 +16,4 @@ class RewardForm(ModelForm):
 class PromotionForm(ModelForm):
     class Meta:
         model = Promotion
-        fields = '__all__'
+        fields = ('name', 'administrator',)

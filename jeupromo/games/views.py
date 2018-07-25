@@ -74,6 +74,7 @@ class RewardDelete(DeleteView):
 class PromotionCreate(CreateView):
     model = Promotion
     form_class = PromotionForm
+    # fields = '__all__'
     success_url = reverse_lazy('games:promotions')
     template_name = 'games/promotion-create.html'
 

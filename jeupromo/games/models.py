@@ -4,6 +4,9 @@ from django.utils import timezone
 # Create your models here.
 class Player(models.Model):
     pseudo = models.CharField(max_length=100, verbose_name= 'pseudo', unique=True)
+    name = models.CharField(max_length=50, verbose_name='nom')
+    firstname = models.CharField(max_length=50, verbose_name='prénom')
+    email = models.EmailField(verbose_name='email', null=True)
 
     def __str__(self):
         return self.pseudo
@@ -12,24 +15,25 @@ class Player(models.Model):
         verbose_name = "Joueur"
 
 class Reward(models.Model):
-    label = models.CharField(max_length=150)
-    value = models.IntegerField()
+    label = models.CharField(max_length=150, verbose_name='libellé')
+    value = models.IntegerField(verbose_name='valeur')
 
     def __str__(self):
-        return self.label + ' ' + str(self.value)
+        return self.label #+ ' ' + str(self.value)
 
     class Meta:
         verbose_name = "Gain"
 
 class Games(models.Model):
-    label = models.CharField(max_length=150)
-    game_type = models.CharField(max_length=150)
+    label = models.CharField(max_length=150, verbose_name='libellé')
+    game_type = models.CharField(max_length=150, verbose_name='type de jeu')
 
     def __str__(self):
         return self.label
 
     class Meta:
-        verbose_name = "Jeux"
+        verbose_name = "Jeu"
+        verbose_name_plural = "Jeux"
 
 
 class Session(models.Model):
@@ -43,7 +47,7 @@ class Session(models.Model):
         return self.player.pseudo + ' ' + self.game.label + ' ' + str(self.datetime) + ' ' + self.reward.label + ' ' + self.result
 
     class Meta:
-        verbose_name = "Session"
+        verbose_name = "Partie"
 
 class Administrator(models.Model):
     name = models.CharField(max_length=150)
@@ -58,7 +62,14 @@ class Administrator(models.Model):
 
 class Promotion(models.Model):
     name = models.CharField(max_length=200)
-    date_start = models.DateTimeField(default=timezone.now())
-    date_end = models.DateTimeField(default=timezone.now())
+    date_start = models.DateField(null=True)
+    date_end = models.DateField(null=True)
     administrator = models.ForeignKey(Administrator, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Opération Promotionnelle"
+        verbose_name_plural = "Opérations Promotionnelles"
 

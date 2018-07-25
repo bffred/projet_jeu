@@ -8,7 +8,7 @@ from .views import *
 app_name = 'games'
 
 urlpatterns = [
-    path('home', views.home, name = 'home'),
+    path('home', home, name = 'home'),
 
     path('players', PlayerList.as_view(), name='players'),
     path('', GameList.as_view(), name='games-list'),
