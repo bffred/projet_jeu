@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Base html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'games/css/bootstrap.css' %}" >
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'games/css/bootstrap.min.css' %}" >-->
+    <link rel="stylesheet" type="text/css" href="{% static 'games/css/style.css' %}" >
+    
+    
+</head>
+<body>
+    <div class="container-fluid entete">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4" id="logo"><img class="img-responsive" src= {% static 'games/img/logo-zerosix.png' %}></div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+    <div class="container bloc">        
+        {% block content %}{% endblock %}
+    </div>
+    <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <p>Copyright &copy; <a href="http://www.zerosix.com" target="_blank">zerosix</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <!-- jQuery -->
+    <script src="{% static 'games/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'games/js/bootstrap.min.js' %}"></script>
+    
+</body>
+</html>

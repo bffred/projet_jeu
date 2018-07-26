@@ -14,12 +14,14 @@ urlpatterns = [
     path('player-detail/<int:pk>/', PlayerDetail.as_view(), name='player-detail'),
     path('player-update/<int:pk>/', PlayerUpdate.as_view(), name='player-update'),
     path('player-delete/<int:pk>/', PlayerDelete.as_view(), name='player-delete'),
-    path('player-create/', PlayerCreate.as_view(), name='player-create')
+    path('player-create/', PlayerCreate.as_view(), name='player-create'),
     
     path('reward-create', RewardCreate.as_view(), name='reward-create'),
     path('reward-detail/<int:pk>/', RewardDetail.as_view(), name='reward-detail'),
     path('rewards', RewardList.as_view(), name='rewards'),
     path('reward-update/<int:pk>/', RewardUpdate.as_view(), name='reward-update'),
     path('reward-delete/<int:pk>/', RewardDelete.as_view(), name='reward-delete'),
+
+    path('base', views.base, name='base'),
     
 ]
