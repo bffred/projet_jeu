@@ -1,0 +1,11 @@
+{% if object_list|length_is:"0" %}
+
+<div>Oups il n'y a aucunes offres disponibles actuellement ! </div>
+
+{% else %}
+
+{% for promotion in object_list %}
+<div>nom: {{promotion.name}} date de debut: {{promotion.date_start}} date de fin: {{promotion.date_end}}</div>
+
+{% endfor %}
+{% endif %}
