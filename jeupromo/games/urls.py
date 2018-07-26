@@ -28,6 +28,6 @@ urlpatterns = [
     path('promotions', PromotionList.as_view(), name='promotions'),
     path('promotion-update/<int:pk>', PromotionUpdate.as_view(), name='promotion-update'),
     path('promotion-delete/<int:pk>', PromotionDelete.as_view(), name='promotion-delete'),
-    path('base', views.base, name='base'),
+    path('base', base, name='base'),
     
 ]

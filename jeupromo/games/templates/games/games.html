@@ -1,13 +1,62 @@
+{% extends "games/base.html" %}
+
+{% block content %}
+
+
+
 <h2>Jeux</h2>
+
+<div class="container-fluid">
+
+
 {% if object_list|length_is:"0" %}
 
 <div>Aucun jeu n'a été ajouté :/</div>
 
 {% else %}
 
-<ul>
-    {% for game in object_list %}
-        <li>{{ game.label }}</li>
+
+
+{% for game in object_list %}
+
+    <div id="test2" class="row mb-5">
+
+        <div class="col-md-4">
+            LOGO
+        </div>
+        <div class="col-md-4">
+            {{ game.label }}
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger">JOUER</button>
+        </div>
+    </div>
+
+
     {% endfor %}
-</ul>
-{% endif %}
+
+    {% endif %}
+
+</div>
+
+<style>
+
+
+    #test {
+        list-style-type: none;
+    }
+
+    #test2 {
+        text-align: center;
+    }
+
+    [class*="col"] {
+        border: 1px solid blue;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+
+</style>
+
+{% endblock  %}
