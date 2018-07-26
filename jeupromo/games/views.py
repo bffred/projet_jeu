@@ -96,4 +96,3 @@ class RewardDelete(DeleteView):
     model = Reward
     success_url = reverse_lazy('games:rewards')
     template_name = 'games/reward-delete.html'
-
