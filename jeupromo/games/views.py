@@ -11,6 +11,9 @@ def home(request):
     <h1> Bienvenue sur le projet Jeux Promotionnel ! <h1>
     """)
 
+def base(request):
+    return render(request, 'games/base.html')
+
 
 class GameList(ListView):
     model = Games

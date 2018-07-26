@@ -1,0 +1,24 @@
+.entete{
+    height: 200px;
+    background-color: grey;
+}
+
+.bloc{
+    margin-top: 5%;
+    min-height: 600px;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+}
+
+.img-responsive{
+    margin-top: 60px;
+    
+}
+
+#logo{
+    text-align: center;
+    
+}
+.footer{
+    min-height: 200px;
+    padding-top: 100px;
+}
