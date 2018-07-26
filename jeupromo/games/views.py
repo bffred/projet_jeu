@@ -1,14 +1,10 @@
-from django.shortcuts import render
-from .models import Games , Player , Session , Reward, Administrator, Promotion
-from django.views.generic import TemplateView , ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Administrator, Games , Player, Promotion, Reward, Session   
 from django.http import HttpResponse, Http404
-from .forms import RewardForm, PromotionForm, PlayerForm
+from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView , UpdateView 
+from .forms import PlayerForm, PromotionForm, RewardForm 
 
-
-
-
-# Create your views here.
 
 def home(request):
     return HttpResponse("""
@@ -18,7 +14,9 @@ def home(request):
 
 class GameList(ListView):
     model = Games
-    template_name = 'games/games-list.html'
+    template_name = 'games/games.html'
+
+#-------------- CRUD Player --------------------
 
 class PlayerCreate (CreateView):
     model = Player
@@ -42,9 +40,37 @@ class PlayerList(ListView):
 
 class PlayerDetail(DetailView):
     model = Player
-    fields = ['pseudo']
+    fields = '__all__'
     template_name = 'games/player-detail.html'
 
+#-------------- CRUD Promotion --------------------
+
+class PromotionCreate(CreateView):
+    model = Promotion
+    form_class = PromotionForm
+    success_url = reverse_lazy('games:promotions')
+    template_name = 'games/promotion-create.html'
+
+class PromotionDetail(DetailView):
+    model = Promotion
+    template_name = 'games/promotion-detail.html'
+
+class PromotionList(ListView):
+    model = Promotion
+    template_name = 'games/promotions.html'
+
+class PromotionUpdate(UpdateView):
+    model = Promotion
+    form_class = PromotionForm
+    success_url = reverse_lazy('games:promotions')
+    template_name = 'games/promotion-update.html'
+
+class PromotionDelete(DeleteView):
+    model = Promotion
+    success_url = reverse_lazy('games:promotions')
+    template_name = 'games/promotion-delete.html'
+
+#-------------- CRUD Reward --------------------
 
 class RewardCreate(CreateView):
     model = Reward
@@ -71,28 +97,3 @@ class RewardDelete(DeleteView):
     success_url = reverse_lazy('games:rewards')
     template_name = 'games/reward-delete.html'
 
-class PromotionCreate(CreateView):
-    model = Promotion
-    form_class = PromotionForm
-    # fields = '__all__'
-    success_url = reverse_lazy('games:promotions')
-    template_name = 'games/promotion-create.html'
-
-class PromotionDetail(DetailView):
-    model = Promotion
-    template_name = 'games/promotion-detail.html'
-
-class PromotionList(ListView):
-    model = Promotion
-    template_name = 'games/promotions.html'
-
-class PromotionUpdate(UpdateView):
-    model = Promotion
-    form_class = PromotionForm
-    success_url = reverse_lazy('games:promotions')
-    template_name = 'games/promotion-update.html'
-
-class PromotionDelete(DeleteView):
-    model = Promotion
-    success_url = reverse_lazy('games:promotions')
-    template_name = 'games/promotion-delete.html'

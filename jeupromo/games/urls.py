@@ -11,7 +11,7 @@ urlpatterns = [
     path('home', home, name = 'home'),
 
     path('players', PlayerList.as_view(), name='players'),
-    path('', GameList.as_view(), name='games-list'),
+    path('', GameList.as_view(), name='games'),
     path('player-create/', PlayerCreate.as_view(), name='player-create'),
     path('player-detail/<int:pk>/', PlayerDetail.as_view(), name='player-detail'),
     path('player-update/<int:pk>/', PlayerUpdate.as_view(), name='player-update'),
