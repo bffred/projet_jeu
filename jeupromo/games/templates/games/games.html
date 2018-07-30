@@ -1,13 +1,50 @@
-<h2>Jeux</h2>
+{% extends "games/base.html" %}
+
+{% load static %}
+
+{% block headTitle %}games{% endblock headTitle %}
+
+{% block css %}
+{% static 'games/css/games.css' %}
+{% endblock css %}
+
+{% block titreCadre %}CHOIX DES JEUX{% endblock titreCadre %}
+
+
+{% block content %}
+
+<div class="container blocContenu">
+
 {% if object_list|length_is:"0" %}
-
-<div>Aucun jeu n'a été ajouté :/</div>
-
+    <div>Aucun jeu n'a été ajouté</div>
 {% else %}
 
-<ul>
     {% for game in object_list %}
-        <li>{{ game.label }}</li>
+
+        <div id="tabGame" class="row mb-5 ">
+            <div class="col-md-4 ">
+                <img src="{{ game.game_logo.url }}" >
+            </div>
+            <div class="col-md-4">
+                <h5>{{ game.description }}</h5>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-success">JOUER</button>
+            </div>
+        </div>
+
     {% endfor %}
-</ul>
+
 {% endif %}
+    <div class="row" id="tabGame">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger">RETOUR</button>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock  %}
