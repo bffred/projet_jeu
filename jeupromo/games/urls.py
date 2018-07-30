@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 from django.views.generic import TemplateView
 # from . import views
 from .views import *
-
+from django.conf.urls.static import static
 app_name = 'games'
 
 urlpatterns = [
@@ -29,5 +29,6 @@ urlpatterns = [
     path('promotion-update/<int:pk>', PromotionUpdate.as_view(), name='promotion-update'),
     path('promotion-delete/<int:pk>', PromotionDelete.as_view(), name='promotion-delete'),
     path('base', base, name='base'),
+    path('test', test, name='test'),
     
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

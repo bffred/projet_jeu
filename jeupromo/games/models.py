@@ -15,7 +15,7 @@ class Administrator(models.Model):
 class Games(models.Model):
     label = models.CharField(max_length=150, verbose_name='libellé')
     game_type = models.CharField(max_length=150, verbose_name='type de jeu')
-    game_logo = models.ImageField()
+    game_logo = models.ImageField("logo jeu", null=True, blank=True, upload_to="img/")
     description = models.TextField(max_length=150 )
 
     def __str__(self):

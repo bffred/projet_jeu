@@ -7,7 +7,7 @@ class AdministratorAdmin(admin.ModelAdmin):
 
 @admin.register(Games)
 class GamesAdmin (admin.ModelAdmin):
-    list_display = ('label', 'game_type')
+    list_display = ('label', 'game_type', 'description','game_logo' )
     list_filter = ('game_type',)
     search_fields = ('label',)
 

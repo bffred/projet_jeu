@@ -1,62 +1,50 @@
 {% extends "games/base.html" %}
 
+{% load static %}
+
+{% block headTitle %}games{% endblock headTitle %}
+
+{% block css %}
+{% static 'games/css/games.css' %}
+{% endblock css %}
+
+{% block titreCadre %}CHOIX DES JEUX{% endblock titreCadre %}
+
+
 {% block content %}
 
-
-
-<h2>Jeux</h2>
-
-<div class="container-fluid">
-
+<div class="container blocContenu">
 
 {% if object_list|length_is:"0" %}
-
-<div>Aucun jeu n'a été ajouté :/</div>
-
+    <div>Aucun jeu n'a été ajouté</div>
 {% else %}
 
+    {% for game in object_list %}
 
-
-{% for game in object_list %}
-
-    <div id="test2" class="row mb-5">
-
-        <div class="col-md-4">
-            LOGO
+        <div id="tabGame" class="row mb-5 ">
+            <div class="col-md-4 ">
+                <img src="{{ game.game_logo.url }}" >
+            </div>
+            <div class="col-md-4">
+                <h5>{{ game.description }}</h5>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-success">JOUER</button>
+            </div>
         </div>
-        <div class="col-md-4">
-            {{ game.label }}
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-danger">JOUER</button>
-        </div>
-    </div>
-
 
     {% endfor %}
 
-    {% endif %}
-
+{% endif %}
+    <div class="row" id="tabGame">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger">RETOUR</button>
+        </div>
+    </div>
 </div>
 
-<style>
 
-
-    #test {
-        list-style-type: none;
-    }
-
-    #test2 {
-        text-align: center;
-    }
-
-    [class*="col"] {
-        border: 1px solid blue;
-        border-radius: 4px;
-        text-align: center;
-      }
-
-
-</style>
 
 {% endblock  %}

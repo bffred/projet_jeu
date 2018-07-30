@@ -14,6 +14,8 @@ def home(request):
 def base(request):
     return render(request, 'games/base.html')
 
+def test(request):
+    return render(request, 'games/test.html' )
 
 class GameList(ListView):
     model = Games
