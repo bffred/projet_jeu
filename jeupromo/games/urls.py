@@ -35,5 +35,7 @@ urlpatterns = [
     url(r'^main/$', main, name="main"),
     url(r'^signup/$', signup, name='signup'),
     url(r'logout', LogoutView.as_view(), name='logout'),
+
+    path('gamesChoice', GamesChoice.as_view(), name='gamesChoice')
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

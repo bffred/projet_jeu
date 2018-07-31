@@ -1,0 +1,20 @@
+
+{% extends "games/base.html" %}
+
+{% load static %}
+
+{% block headTitle %}{% endblock headTitle %}
+
+{% block css %}{% endblock css %}
+
+{% block titreCadre %}test{% endblock titreCadre %}
+
+{% block content %}
+
+
+<div class="container blocContenu">
+        <p>Welcome, {{ user.username }}.</p>
+        <a href="{% url 'games:logout' %}">Logout</a>
+</div>
+
+{% endblock content %}

@@ -21,7 +21,7 @@
 
     {% for game in object_list %}
 
-        <div id="tabGame" class="row mb-5 ">
+        <div class="row mb-5 tabGame">
             <div class="col-md-4 ">
                 <img src="{{ game.game_logo.url }}" >
             </div>
@@ -36,7 +36,7 @@
     {% endfor %}
 
 {% endif %}
-    <div class="row" id="tabGame">
+    <div class="row tabGame ">
         <div class="col-md-8">
         </div>
         <div class="col-md-4">
