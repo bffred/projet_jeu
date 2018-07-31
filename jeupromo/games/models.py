@@ -1,16 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
-class Administrator(models.Model):
-    name = models.CharField(max_length=150)
-    login = models.CharField(max_length=15)
-    password = models.CharField(max_length=8)
 
-    def __str__(self):
-        return self.name
 
-    class Meta:
-        verbose_name = "Gestionnaire"
 
 class Games(models.Model):
     label = models.CharField(max_length=150, verbose_name='libellé')
@@ -27,6 +20,8 @@ class Games(models.Model):
 
 
 class Player(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    auto_increment_id = models.AutoField(primary_key=True, verbose_name = 'id')
     pseudo = models.CharField(max_length=100, verbose_name= 'pseudo', unique=True)
     name = models.CharField(max_length=50, verbose_name='nom')
     firstname = models.CharField(max_length=50, verbose_name='prénom')
@@ -37,6 +32,15 @@ class Player(models.Model):
 
     class Meta:
         verbose_name = "Joueur"
+
+class Administrator(Player):
+    
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Gestionnaire"
 
 class Promotion(models.Model):
     name = models.CharField(max_length=200)

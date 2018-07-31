@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 # from . import views
 from .views import *
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView, LogoutView
 app_name = 'games'
 
 urlpatterns = [
@@ -30,5 +31,9 @@ urlpatterns = [
     path('promotion-delete/<int:pk>', PromotionDelete.as_view(), name='promotion-delete'),
     path('base', base, name='base'),
     path('test', test, name='test'),
+    url(r'^login/$', login_user, name = 'login'),
+    url(r'^main/$', main, name="main"),
+    url(r'^signup/$', signup, name='signup'),
+    url(r'logout', LogoutView.as_view(), name='logout'),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
