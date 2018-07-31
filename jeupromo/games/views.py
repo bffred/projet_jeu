@@ -17,6 +17,10 @@ def base(request):
 def test(request):
     return render(request, 'games/test.html' )
 
+class GamesChoice(ListView):
+    model = Games
+    template_name = 'games/gamesChoice.html' 
+
 class GameList(ListView):
     model = Games
     template_name = 'games/games.html'

@@ -30,5 +30,7 @@ urlpatterns = [
     path('promotion-delete/<int:pk>', PromotionDelete.as_view(), name='promotion-delete'),
     path('base', base, name='base'),
     path('test', test, name='test'),
+
+    path('gamesChoice', GamesChoice.as_view(), name='gamesChoice')
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

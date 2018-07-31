@@ -1,0 +1,55 @@
+{% extends "games/base.html" %}
+
+{% load static %}
+
+{% block headTitle %}gamesChoice{% endblock headTitle %}
+
+{% block css %}
+{% static 'games/css/gamesChoice.css' %}
+{% endblock css %}
+
+{% block titreCadre %}CHOIX DES JEUX DE VOTRE CAMPAGNE{% endblock titreCadre %}
+
+
+{% block content %}
+
+<div class="container blocContenu">
+
+{% if object_list|length_is:"0" %}
+    <div>Aucun jeu n'a été ajouté</div>
+{% else %}
+<form action="{% url 'games:base' %}">
+    {% csrf_token %}
+    {% for game in object_list %}
+
+        <div class="row mb-5 tabGame">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <input type="checkbox">{{ game.label }}
+        
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                <img src="{{ game.game_logo.url }}" >
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <h5>{{ game.description }}</h5>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+    <div class="row tabGame">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <a href="{% url 'games:test' %}"><span class="btn btn-danger">RETOUR</span></a>
+            <div>   </div>
+            <button class="btn btn-success">VALIDER</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock  %}

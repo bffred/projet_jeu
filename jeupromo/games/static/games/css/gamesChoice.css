@@ -1,4 +1,4 @@
-.tabGame {
+  .tabGame {
     text-align: center;
     min-height: 225px;
     display: flex;
@@ -11,9 +11,3 @@
     align-items: center;
     justify-content: center;
   }
-
-[class*="col"] {
-    border: 1px solid blue;
-    border-radius: 4px;
-    text-align: center;
- } 
