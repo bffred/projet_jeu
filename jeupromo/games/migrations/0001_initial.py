@@ -71,11 +71,7 @@ class Migration(migrations.Migration):
             name='Session',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-<<<<<<< HEAD
                 ('datetime', models.DateTimeField(default=datetime.datetime(2018, 7, 31, 13, 7, 48, 570720, tzinfo=utc))),
-=======
-                ('datetime', models.DateTimeField(default=datetime.datetime(2018, 7, 30, 12, 36, 4, 136831, tzinfo=utc))),
->>>>>>> flodev
                 ('result', models.CharField(max_length=150)),
                 ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='games.Games')),
             ],
