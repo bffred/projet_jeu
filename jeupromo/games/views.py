@@ -70,6 +70,7 @@ class PlayerCreate (CreateView):
     form_class = PlayerForm
     template_name = 'games/player-create.html'
     success_url = reverse_lazy('games:players')
+    template_name = 'games/registration.html'
 
 class PlayerUpdate (UpdateView):
     model = Player
