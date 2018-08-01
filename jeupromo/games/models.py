@@ -43,6 +43,7 @@ class Promotion(models.Model):
     date_start = models.DateField(null=True)
     date_end = models.DateField(null=True)
     administrator = models.ForeignKey(Administrator, on_delete=models.CASCADE)
+    reward = models.ManyToManyField(Games, through='PromotionGames')
 
     def __str__(self):
         return self.name
@@ -50,6 +51,8 @@ class Promotion(models.Model):
     class Meta:
         verbose_name = "Opération Promotionnelle"
         verbose_name_plural = "Opérations Promotionnelles"
+
+
 
 class Reward(models.Model):
     label = models.CharField(max_length=150, verbose_name='libellé')
@@ -74,3 +77,13 @@ class Session(models.Model):
 
     class Meta:
         verbose_name = "Partie"
+
+#PRG stand for Promotion Rewards Games
+class PromotionGames(models.Model):
+    promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE)
+    game = models.ForeignKey(Games, on_delete=models.CASCADE)
+    reward = models.ForeignKey(Reward, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name = "Opération Promotionnelle Jeu(x) Gain(s)"
+        verbose_name_plural = "Opérations Promotionnelles Jeu(x) Gain(s)"

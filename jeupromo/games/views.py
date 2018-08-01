@@ -1,4 +1,4 @@
-from .models import Administrator, Games , Player, Promotion, Reward, Session   
+from .models import *   
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy

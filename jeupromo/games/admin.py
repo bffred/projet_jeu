@@ -38,7 +38,9 @@ class SessionAdmin (admin.ModelAdmin):
     date_hierarchy = ('datetime')
     list_filter = ('game',)
 
+
 admin.site.register(Reward, RewardAdmin)
 admin.site.register(Session, SessionAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(Promotion)
+admin.site.register(PromotionGames)

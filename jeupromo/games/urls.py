@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 # from . import views
 from .views import *
 from django.conf.urls.static import static
+
 app_name = 'games'
 
 urlpatterns = [
