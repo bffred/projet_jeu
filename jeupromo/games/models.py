@@ -30,7 +30,13 @@ class Player(models.Model):
     pseudo = models.CharField(max_length=100, verbose_name= 'pseudo', unique=True)
     name = models.CharField(max_length=50, verbose_name='nom')
     firstname = models.CharField(max_length=50, verbose_name='prénom')
+    gender = models.BooleanField(default=False)
     email = models.EmailField(verbose_name='email', null=True)
+    img_player = models.ImageField("avatar", null=True, blank=True, upload_to="avatar/")
+    pseudo = models.CharField(max_length=40, verbose_name='mot de passe')
+    dateNaissance = models.DateField(null=True)
+    
+
 
     def __str__(self):
         return self.pseudo
@@ -65,7 +71,8 @@ class Reward(models.Model):
 class Session(models.Model):
     game = models.ForeignKey(Games, on_delete=models.CASCADE)
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
-    datetime = models.DateTimeField(default=timezone.now())
+    # datetime = models.DateTimeField(default=timezone.now())
+    datetime = models.DateTimeField(auto_now_add=True)
     reward = models.ForeignKey(Reward, on_delete=models.CASCADE)
     result = models.CharField(max_length=150)
 

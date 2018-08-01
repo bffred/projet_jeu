@@ -1,0 +1,95 @@
+body {
+    padding-top: 40px;
+  }
+
+
+ /* [class*="col"] {
+    background-color: lightblue; 
+    border: 1px solid rgb(255, 166, 0);
+    border-radius: 4px;  */
+  } 
+
+  #Title {
+    text-align: center;
+  }
+
+  #avatar {
+    padding-top: 10px;
+    width: 150px;
+    height: 150px;
+  }
+
+  /* #row1 {
+    background-color: rgb(0, 255, 242);
+  } */
+  
+
+  #div1 {
+    padding-top: 20px;
+    /* background-color: rgb(255, 255, 255); */
+  }
+
+  #div2 {
+    padding-top: 20px;
+    /* background-color: rgb(188, 200, 255); */
+  }
+  #div3 {
+    padding-top: 10px;
+    /* background-color: rgb(255, 164, 164); */
+  }
+
+  /* #row2 {
+     background-color: rgb(222, 188, 255);
+  } */
+   #div4 {
+    padding-top: 10px;
+    /* background-color: rgb(255, 253, 164); */
+  }
+  #div5 {
+    padding-top: 10px;
+    /* background-color: rgb(182, 255, 164); */
+  }
+  #div6 {
+    padding-top: 10px;
+    /* background-color: rgb(164, 170, 255); */
+  }
+
+  /* #row3 {
+    background-color: rgb(222, 188, 255);
+  } */
+  #div7 {
+    padding-top: 10px;
+    /* background-color: rgb(255, 164, 164);
+    text-align: right */
+  }
+  #div8 {
+    padding-top: 10px;
+    /*background-color: rgb(211, 211, 211);
+    text-align: center */
+  }
+
+   #div9 {
+    padding-top: 10px;
+    /* background-color: rgb(233, 12, 12);
+    text-align: right */
+  }
+
+  
+/*   
+  .btn-group:hover {
+    background-color: paleturquoise;
+}
+  
+  .btn-group:active {
+  background-color: rgb(0, 174, 255);
+}
+
+.btn-group-toggle {
+  background-color: default ;
+}
+  
+.btn-group-toggle: :active {
+  background-color: rgb(0, 174, 255 ;
+
+}
+ */
