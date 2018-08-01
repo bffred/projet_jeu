@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^login/$', login_user, name = 'login'),
     url(r'^main/$', main, name="main"),
     url(r'^signup/$', signup, name='signup'),
-    url(r'logout', LogoutView.as_view(), name='logout'),
+    url(r'logout', LogoutView.as_view(template_name="games/logout.html"), name='logout'),
 
     path('gamesChoice', GamesChoice.as_view(), name='gamesChoice')
     
