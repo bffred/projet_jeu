@@ -7,14 +7,14 @@
   
   {% block css %}{% endblock css %}
   
-  {% block titreCadre %}test{% endblock titreCadre %}
+  {% block titreCadre %}Sign up - Inscription {% endblock titreCadre %}
   
   {% block content %}
   
   
   <div class="container blocContenu">
 
-      <h2>Sign up</h2>
+      <h2>Inscription :</h2>
       <form method="post">
         {% csrf_token %}
         {% for field in form %}
