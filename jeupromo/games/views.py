@@ -68,7 +68,7 @@ class GameList(ListView):
 class PlayerCreate (CreateView):
     model = Player
     form_class = PlayerForm
-    template_name = 'games/player-create.html'
+    # template_name = 'games/player-create.html'
     success_url = reverse_lazy('games:players')
     template_name = 'games/registration.html'
 
@@ -92,6 +92,11 @@ class PlayerDetail(DetailView):
     model = Player
     fields = '__all__'
     template_name = 'games/player-detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PlayerDetail, self).get_context_data(**kwargs)
+        context['user'] = Player.objects.get(pk=self.kwargs['pk'])
+        return context
 
 #-------------- CRUD Promotion --------------------
 

@@ -21,29 +21,8 @@
             {% csrf_token %}
             <fieldset>
                 <div id="row1" class="row">
-                    <div id="div1" class="col-lg-6">
-                        <!-- <div class="btn-toolbar" role="toolbar" aria-label="groupe_boutons">
-                            <div class="btn-group-sm" role="group" aria-label="bouton1">
-                                <button  type="button" class="btn btn-group ">Mr. </button>
-                                <button  type="button" class="btn btn-group ">Mme</button>
-                                <br>
-    
-                            </div>
-                            
-                        </div> -->
-                        <!-- <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" id="materialInline1" name="inlineMaterialRadiosExample">
-                                <label class="form-check-label" for="materialInline1">1</label>
-                            </div>
-                              
-                              Material inline 2 
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" id="materialInline2" name="inlineMaterialRadiosExample">
-                                <label class="form-check-label" for="materialInline2">2</label>
-                        </div> -->
-
-
-
+                    <div  class="col-lg-6 div20">
+       
                         <div class="btn-group btn-group-toggle btn-sm" data-toggle="buttons">
                             <label class="btn btn-secondary active">
                                 <input type="radio" name="options" id="option1" autocomplete="off" checked> Mr.
@@ -54,22 +33,13 @@
                             <br><br>
                             
                         </div>
-                        
-
-
-
-
-
                     </div>
-                            
-
-                    
-                    <div id="div2" class="col-lg-6">
+                    <div class="col-lg-6 div20">
                         
                     </div>
                 </div>
                 <div id="row2" class="row">
-                    <div id="div3" class="col-lg-6">
+                    <div id="div3" class="col-lg-6 dvi10">
                         <div class="controls-Nom">
                             {{ form.name }}
                             <!-- <p class="help-block">Le Nom peut contenir des lettres ou des numéros, sans espaces</p> -->
@@ -77,7 +47,7 @@
                             <br>
                         </div>
                     </div>
-                    <div id="div4" class="col-lg-6">
+                    <div id="div4" class="col-lg-6 div10">
                         <div class="controls-Prenom">
                             {{ form.firstname }}
                             <!-- <p class="help-block">Le Prénom peut contenir des lettres ou des numéros, sans espaces</p> -->
@@ -85,7 +55,7 @@
                     </div>
                 </div>
                 <div id="row3" class="row">
-                    <div id="div5" class="col-lg-6">
+                    <div id="div5" class="col-lg-6 div10">
                         <div class="control-group">
                             <div class="controls">
                                 {{ form.email }}
@@ -105,14 +75,12 @@
                         </div>
                     </div>
                 
-                    <div id="div6" class="col-lg-6">
+                    <div id="div6" class="col-lg-6 div10">
                         <img id="avatar"  class="img-thumbnail" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></img>
                         <br>
-
                         <br>
                         {% comment %} {{ form.img_player }} {% endcomment %}
                         <label class="btn btn-outline-primary">Télécharger<input type="file" style="display: none;"></label>
-                        {% comment %} <button " class="btn btn-primary">Télécharger</button> {% endcomment %}
                         <br>
                         <br>
                     </div>
