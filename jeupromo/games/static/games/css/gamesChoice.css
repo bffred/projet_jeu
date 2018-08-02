@@ -1,0 +1,13 @@
+  .tabGame {
+    text-align: center;
+    min-height: 225px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .tabGame > [class^="col-"],
+  .tabGame > [class*=" col-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

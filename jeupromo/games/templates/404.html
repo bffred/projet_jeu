@@ -1,0 +1,40 @@
+{% extends "games/base.html" %}
+
+{% load static %}
+
+{% block headTitle %}404{% endblock headTitle %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block titreCadre %}404{% endblock titreCadre %}
+
+{% block content %}
+
+
+<div class="container blocContenu">
+    <svg version="1.1" viewBox="0 0 1000 830">
+
+        <text id="text" fill="grey" x="185" y="350" font-size="300" font-family="impact" visibility="hidden">PAGE</text>
+        <animate xlink:href="#text" attributeName="visibility" from="visible" to="hidden" begin="5s"></animate>
+        <animate id="v1" xlink:href="#text" attributeName="x" from="185" to="190" dur="0.02s" begin="5s;v3.end" ></animate>
+        <animate id="v2" xlink:href="#text" attributeName="x" from="190" to="180" dur="0.02s" begin="v1.end"></animate>
+        <animate id="v3" xlink:href="#text" attributeName="x" from="180" to="185" dur="0.02s" begin="v2.end" end="6.5s"></animate>
+        
+        <text id="text4" fill="" x="200" y="000" font-size="300" font-family="impact" >4</text>
+        <animate xlink:href="#text4" attributeName="y" from="000" to="700" dur="0.8s" fill="freeze" begin="3.8s"></animate>
+
+        <text id="text42" fill="" x="600" y="000" font-size="300" font-family="impact" >4</text>
+        <animate xlink:href="#text42" attributeName="y" from="000" to="700" dur="0.8s" fill="freeze" begin="3.8s"></animate>
+
+        <text id="text0" fill="#BF0013" x="400" y="700" font-size="300" font-family="impact" >0</text>
+
+        <text id="text6" fill="grey" x="600" y="700" font-size="300" font-family="impact" >6</text>
+        <animate xlink:href="#text6" attributeName="y" from="600" to="1200" dur="0.4" fill="freeze" begin="4.2s"></animate>
+        <animateTransform xlink:href="#text6" attributeName="transform" type="rotate" from="0 510 500" to="360 200 300" begin="0.8" dur="1.6s" />
+    
+    </svg>
+</div>
+
+{% endblock content %}

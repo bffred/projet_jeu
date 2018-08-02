@@ -1,0 +1,120 @@
+
+
+{% extends 'games/base.html' %}
+
+{% load static %}
+
+{% block headTitle %}Inscription{% endblock headTitle %}
+
+{% block css %}
+{% static 'games/css/registration.css' %}
+{% endblock css %}
+
+{% block titreCadre %}Inscription{% endblock titreCadre %}
+
+{% block content %}
+
+
+<body>
+    <div class="container blocContenu">  
+        <form class="form-horizontal" action="{% url 'games:base' %}" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <div id="row1" class="row">
+                    <div  class="col-lg-6 div20">
+       
+                        <div class="btn-group btn-group-toggle btn-sm" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Mr.
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Mme
+                            </label>
+                            <br><br>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 div20">
+                        
+                    </div>
+                </div>
+                <div id="row2" class="row">
+                    <div id="div3" class="col-lg-6 dvi10">
+                        <div class="controls-Nom">
+                            {{ form.name }}
+                            <!-- <p class="help-block">Le Nom peut contenir des lettres ou des numéros, sans espaces</p> -->
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div id="div4" class="col-lg-6 div10">
+                        <div class="controls-Prenom">
+                            {{ form.firstname }}
+                            <!-- <p class="help-block">Le Prénom peut contenir des lettres ou des numéros, sans espaces</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div id="row3" class="row">
+                    <div id="div5" class="col-lg-6 div10">
+                        <div class="control-group">
+                            <div class="controls">
+                                {{ form.email }}
+                                {% comment %} <input type="text" id="email" name="email" placeholder="Adresse E-mail" class="input-xlarge"> {% endcomment %}
+                                <p class="help-block">Saississez votre E-mail</p>
+                            </div>
+                            <div class="controls">
+                                {{ form.dateNaissance }}
+                                {% comment %} <input type="text" id="dateNaissance" name="dateNaissance" placeholder="Date de Naissance" class="input-xlarge"> {% endcomment %}
+                                <p class="help-block">Saississez votre Date de Naissance</p>
+                            </div>
+                            <div class="controls">
+                                {{ form.pseudo }}
+                                {% comment %} <input type="text" id="Pseudo" name="Pseudo" placeholder="Pseudo" class="input-xlarge"> {% endcomment %}
+                                <p class="help-block">Saississez votre Pseudo</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div id="div6" class="col-lg-6 div10">
+                        <img id="avatar"  class="img-thumbnail" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></img>
+                        <br>
+                        <br>
+                        {% comment %} {{ form.img_player }} {% endcomment %}
+                        <label class="btn btn-outline-primary">Télécharger<input type="file" style="display: none;"></label>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div id="row4" class="row">
+                    <div id="div7" class="col-lg-6">
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder="Mot de Passe" class="input-xlarge">
+                                <p class="help-block">Le mot de passe doit avoir au minimum 4 charactères</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <!-- Password -->
+                            <div class="controls">
+                                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmation" class="input-xlarge">
+                                <p class="help-block">Confirmer votre mot de passe</p>
+                            </div>
+                        </div>
+                    </div>          
+                    <div id="div8" class="col-lg-6">
+                        <div class="control-group">
+                            <div class="controls">
+                                <a href="{% url 'games:test' %}"><span class="btn btn-danger">Retour</span></a>
+                                <button class="btn btn-success">Valider</button>
+                                <br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+{% endblock content %}
+<!-- </html> -->

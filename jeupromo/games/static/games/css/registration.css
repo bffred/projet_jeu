@@ -1,0 +1,25 @@
+body {
+    padding-top: 40px;
+  }
+
+
+  /* [class*="col"] {
+    background-color: lightblue; 
+    border: 1px solid rgb(255, 166, 0);
+    border-radius: 4px;  
+  }  */
+
+  #avatar {
+    padding-top: 10px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .div20 {
+    padding-top: 20px;
+  }
+
+  .div10{
+    padding-top:10px;
+  } 
+
