@@ -23,12 +23,8 @@ class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     auto_increment_id = models.AutoField(primary_key=True, verbose_name = 'id')
     pseudo = models.CharField(max_length=100, verbose_name= 'pseudo', unique=True)
-    name = models.CharField(max_length=50, verbose_name='nom')
-    firstname = models.CharField(max_length=50, verbose_name='prénom')
-    gender = models.BooleanField(default=False)
-    email = models.EmailField(verbose_name='email', null=True)
+    gender = models.BooleanField(default=False, verbose_name= 'civilité', choices=( (True, "Mr."),(False, "Mme") ))
     img_player = models.ImageField("avatar", null=True, blank=True, upload_to="avatar/")
-    pseudo = models.CharField(max_length=40, verbose_name='mot de passe')
     dateNaissance = models.DateField(null=True)
     
 

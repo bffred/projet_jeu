@@ -35,7 +35,6 @@ urlpatterns = [
     url(r'^main/$', main, name="main"),
     url(r'^signup/$', signup, name='signup'),
     url(r'logout', LogoutView.as_view(template_name="games/logout.html"), name='logout'),
-
     path('gamesChoice', GamesChoice.as_view(), name='gamesChoice')
     
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
