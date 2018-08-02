@@ -1,0 +1,23 @@
+/* [class*="img-responsive"] {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid blue;
+    border-radius: 4px;
+} */
+.table{
+    text-align: center;   
+}
+#parcourir{
+    margin-left: 50%;      
+    transform: translateY(-100%);
+}
+.btn -file {
+    position:  relative ;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    background: white;   
+}
+
+
