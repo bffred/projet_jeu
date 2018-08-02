@@ -1,11 +1,73 @@
-{% if object_list|length_is:"0" %}
+{% extends 'games/base.html' %} 
+{% load static %} 
+{% block headTitle %}Choix des Gains{% endblock headTitle %}
+{% block css%}{% static 'games/css/rewards.css' %} {% endblock css %} 
+{% block titreCadre %}Choix des Gains{% endblock titreCadre %}
 
-<div>Aucun gain n'a été ajouté :/</div>
+{% block content %}
 
-{% else %}
+<div class="container blocContenu">
+    {% if object_list|length_is:"0" %}
 
-{% for reward in object_list %}
-<div>nom: {{reward.label}} valeur:{{reward.value}}</div>
+    <div>Aucun gain n'a été ajouté :/</div>
 
-{% endfor %}
-{% endif %}
+    {% else %}
+
+    <table class="table table-sm table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nom Gain</th>
+                <th scope="col">Valeur</th>
+                <th scope="col">Quantité Initiale</th>
+                <th scope="col" class="text-sm-left">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for reward in object_list %}
+            <tr>
+                <th scope="row">{{ reward.id }}</th>
+                <td>{{ reward.label }}</td>
+                <td>{{ reward.value }}</td>
+                <td>Quantité Initiale de {{ reward.label }}</td>
+                <td>
+                    <form>
+                        <div class="custom-file">                       
+                                                        
+                            <img class="img-responsive img-thumbnail rounded float-sm-left" src="{% static 'games/img/bandit.png' %}" alt="jeu choisi">
+                                <label for="parcourir" class="btn btn-outline-primary">Parcourir
+                                    <input id="parcourir" type="file"  style="display: none;"></label><br><br/>
+                        </div>
+                                    
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Supprimer</label>
+                        </div>                    
+                    </form>
+
+                </td>
+            </tr>
+
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div class="row tabGame">
+        <div class="col-md-8">
+    </div>
+    <div class="col-md-2">
+        <a href="http://google.fr" class="btn btn-danger">Annuler</a>        
+    </div>
+    <div class="col-md-2">
+        <form name="" method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-success " value="Valider">
+        </form>
+    </div>
+
+    {% endif %}
+</div>
+
+{% endblock %}
