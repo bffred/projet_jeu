@@ -1,11 +1,60 @@
-{% if games|length_is:"0" %}
+{% extends "games/base.html" %}
 
-<div>Aucun jeu n'a été ajouté :/</div>
+{% load static %}
 
-{% else %}
+{% block headTitle %}Affichage des jeux{% endblock headTitle %}
 
-{% for game in games %}
-<div>({game.label})</div>
+{% block css %}{% endblock css %}
 
-{% endfor %}
-{% endif %}
+{% block titreCadre %}Liste des jeux{% endblock titreCadre %}
+
+{% block content %}
+
+
+<div class="container blocContenu">
+    
+    {% if games|length_is:"0" %}
+    
+    <div>Aucun jeu n'a été ajouté :/</div>
+    
+    {% else %}
+    
+    <label>Liste des jeux</label>
+    <div class="row enteteTab">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            Nom
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            Type
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            Visuel
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            Description
+        </div>
+    </div>
+
+    {% for game in games %}
+    
+        <div class="row tabGame">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                {{ game.label }}
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                    {{ game.type }}
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                {{ game.game_logo }}
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                {{ game.description }}
+            </div>
+        </div>
+    
+    {% endfor %}
+    {% endif %}
+   
+</div>
+
+{% endblock content %}
