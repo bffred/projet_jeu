@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <script type="text/javascript" src="{% static 'games/js/jquery.js' %}"></script>
+</head>
+<body>
+    <div id="demo3" class="scratchpad"></div>
+  
+    <br/>
+    <input type="button" value="Reset" onclick="$('.scratchpad').wScratchPad('reset');"/>
+    <input type="button" value="Clear" onclick="$('.scratchpad').wScratchPad('clear');"/>
+    <input type="button" value="Enable" onclick="$('.scratchpad').wScratchPad('enable', true);"/>
+    <input type="button" value="Disable" onclick="$('.scratchpad').wScratchPad('enable', false);"/>
+    
+    <style>
+      #demo3 {
+        width: 25%;
+        height: 100px;
+        border: solid 1px;
+        display: inline-block;
+      }
+    </style>
+  
+  <script type="text/javascript" src="{% static 'games/js/wScratchPad-2.1.0/wScratchPad.min.js' %}"></script>
+    <script type="text/javascript">
+
+     const random = Math.random()
+
+      $('#demo3').wScratchPad({
+
+        cursor: "url('{% static 'games/img/scratch/cursors/coin.png' %}') 5 5, default",
+        scratchMove: function (e, percent) {
+          console.log(percent);
+        }
+      });
+      if (random > 0.5 ){
+        $('#demo3').wScratchPad('bg', "{% static 'games/img/scratch/winner.png' %}");
+      }
+      else {
+        $('#demo3').wScratchPad('bg', "{% static 'games/img/scratch/lost.png' %}");
+      }
+
+      $('#demo3').wScratchPad('fg', "{% static 'games/img/scratch/scratch-to-win.png' %}");
+      $('#demo3').wScratchPad('size', 10);
+    </script>
+
+</body>
+</html>
