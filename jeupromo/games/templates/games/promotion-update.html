@@ -1,6 +1,127 @@
-<h1>Modification OP</h1>
-<form method="post" >
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Modifier OP" />
-</form>
+{% extends "games/base.html" %}
+
+{% load static %}
+
+{% block headTitle %}Modification opération promotionnelle{% endblock headTitle %}
+
+{% block css %}{% endblock css %}
+
+{% block titreCadre %}Modification opération promotionnelle{% endblock titreCadre %}
+
+{% block content %}
+
+
+<div class="container blocContenu">
+    
+        <form method="post" action="{% url 'games:promotions' %}">
+                {% csrf_token %}
+        
+                <div class="row tabGame ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-5 mt-5">
+                        <label>Nom de l'opération promotionnelle:</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5">
+                        <label>Date de début:</label>
+                        {{form.date_start}}
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5">
+                        <label>Date de fin:</label>
+                        {{form.date_end}}
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-5">
+                        <label>nom de l'administrateur</label>
+                        {{ form.name }}
+                    </div>
+                </div>
+        
+                <label>Liste des jeux</label>
+                <div class="row enteteTab">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        Nom
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        Type
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        visuel
+                    </div>
+                </div>
+            {% for game in object_list %}
+                <div class="row tabGame">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        {{ game.label }}
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        {{ game.type }}
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        <img src="{{ game.game_logo.url }}">
+                    </div>
+                </div>
+            {% endfor %}
+        
+            <div class="row tit mb-5">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        <a href="{% url 'games:gamesChoice' %}">
+                            <span class="btn btn-success">AJOUTER JEU(X)</span>
+                        </a>
+                    </div>
+                </div>
+        
+                <label>Liste des gains</label>
+                    <div class="row enteteTab">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            Désignation
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            Valeur
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        </div>
+                    </div>
+                {% for reward in object_list %}
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            {{ reward.label }}
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            {{ reward.value }}
+                            </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            <img src="{{ game.game_logo.url }}">
+                        </div>
+                    </div>
+                {% endfor %}
+        
+                    <div class="row tit mb-5">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">     
+                            <a href="{% url 'games:gamesChoice' %}">
+                                <span class="btn btn-success">AJOUTER GAIN(S)</span>
+                            </a>
+                        </div>  
+                    </div>
+        
+                    <div class="row tit">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            CREER OPERATION PROMOTIONNELLE ?
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            <a href="{% url 'games:test' %}"><span class="btn btn-danger">RETOUR</span></a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                            <button class="btn btn-success">VALIDER</button>
+                        </div>
+                    </div>
+    </form>
+</div>
+
+{% endblock content %}

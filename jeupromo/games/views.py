@@ -41,7 +41,8 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'games/signup.html', {'form': form})
     
-
+def scratch(request):
+    return render(request, 'games/scratch.html')
 
 
 def home(request):
