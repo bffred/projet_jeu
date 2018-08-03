@@ -1,0 +1,108 @@
+{% extends 'games/base.html' %}
+
+{% load static %}
+
+{% block headTitle %}Votre profil{% endblock headTitle %}
+
+{% block css %}
+
+{% static 'games/css/player-detail.css' %}
+
+{% endblock css %}
+
+{% block titreCadre %}Votre profil{% endblock titreCadre %}
+
+{% block content %}
+
+{% csrf_token %}
+
+<div class="container blocContenu">  
+        <fieldset>
+                <div class="row">
+                        <div class="col-lg-6 div20">
+                        </div>
+                        <div  class="col-lg-6 div20">
+                                <H2>Avatar : </H2>
+                        </div>
+                </div>                                 
+                <div class="row">
+                        <div  class="col-lg-6">
+                                <div class="row">
+                                        <div  class="col-lg-3">
+                                                <label for="gender"> Civilité : </label>        
+                                        </div>
+                                        <div  class="col-lg-9">
+                                                {{ player.gender }}        
+                                        </div>    
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-3">
+                                                <label for="name"> Nom : </label>        
+                                        </div>
+                                        <div class="col-lg-9">
+                                                {{ player.user.last_name }}
+                                        </div>    
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-3">
+                                                <label for="Firstname"> Prénom : </label>        
+                                        </div>
+                                        <div class="col-lg-9">
+                                                <label for="Firstname">  
+                                                        {{ player.user.first_name }}
+                                                </label>
+                                        </div>    
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-3">
+                                                <label for="email"> Adresse Email : </label>        
+                                        </div>
+                                        <div class="col-lg-9">
+                                                <label for="email">  
+                                                        {{ player.user.email }}
+                                                </label>
+                                        </div>    
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-3">
+                                                <label for="datenaissance"> Date de Naissance : </label>        
+                                        </div>
+                                        <div class="col-lg-9">
+                                                <label for="datenaissance">  
+                                                        {{ player.dateNaissance }}
+                                                </label>
+                                        </div>    
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-3">
+                                                <label for="pseudo"> Pseudo : </label>        
+                                        </div>
+                                        <div class="col-lg-9">
+                                                <label for="pseudo">  
+                                                        {{ player.pseudo }}
+                                                </label>
+                                        </div>    
+                                </div>
+                        </div>
+                        <div  class="col-lg-6">
+                                <div >
+                                        <img class="img-thumbnail" id="avatar"  src="../../{{ player.avatar.url }}">
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div  class="col-lg-6">
+                                <div class="control-group">
+                                        <div class="controls">
+                                                <button class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:8000/games/test'">Modifier</button>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-6"></div> 
+                </div> 
+        </fieldset>
+
+</div>
+
+{% endblock content %}
+
